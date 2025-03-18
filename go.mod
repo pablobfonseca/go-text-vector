@@ -1,13 +1,16 @@
-module github.com/pablobfonseca/go-vector
+module github.com/pablobfonseca/go-text-vector
 
 go 1.24.1
 
-require github.com/spf13/viper v1.20.0
+require (
+	github.com/pablobfonseca/go-vector v0.0.0-20250318155455-52e54f81f4ad
+	github.com/spf13/viper v1.20.0
+)
 
 require (
 	github.com/fsnotify/fsnotify v1.8.0 // indirect
 	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
-	github.com/gorilla/mux v1.8.1 // indirect
+	github.com/gorilla/mux v1.8.1
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgx/v5 v5.7.2 // indirect
@@ -15,7 +18,7 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.3 // indirect
-	github.com/pgvector/pgvector-go v0.3.0 // indirect
+	github.com/pgvector/pgvector-go v0.3.0
 	github.com/rs/cors v1.11.1
 	github.com/sagikazarmark/locafero v0.7.0 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
@@ -30,6 +33,6 @@ require (
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	gorm.io/driver/postgres v1.5.11 // indirect
-	gorm.io/gorm v1.25.12 // indirect
+	gorm.io/driver/postgres v1.5.11
+	gorm.io/gorm v1.25.12
 )
