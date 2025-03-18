@@ -11,6 +11,7 @@ import (
 	"github.com/pablobfonseca/go-vector/models"
 	"github.com/pablobfonseca/go-vector/ollama"
 	"github.com/pgvector/pgvector-go"
+	"github.com/rs/cors"
 	"github.com/spf13/viper"
 )
 
@@ -81,11 +82,21 @@ func main() {
 	database.DB.AutoMigrate(&models.TextEmbedding{})
 
 	r := mux.NewRouter()
+
 	r.HandleFunc("/insert", InsertTextEmbedding).Methods("POST")
 	r.HandleFunc("/search", SearchSimilarText).Methods("POST")
 
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"},
+		AllowedMethods:   []string{"GET", "POST", "OPTIONS"},
+		AllowedHeaders:   []string{"Content-Type", "Authorization"},
+		AllowCredentials: true,
+	})
+
+	handler := c.Handler(r)
+
 	fmt.Println("Server running on port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Fatal(http.ListenAndServe(":8080", handler))
 }
 
 func init() {
